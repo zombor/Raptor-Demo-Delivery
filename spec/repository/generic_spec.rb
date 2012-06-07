@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'repository'
 
 describe Repository do
-  let(:user_repo) { double('user repo') }
+  let(:user_repo) { MockRepository.new }
 
   before :each do
     Repository.add(:users => user_repo)
@@ -14,5 +14,15 @@ describe Repository do
 
   it 'retreives a specific repository' do
     Repository.for(:users).should == user_repo
+  end
+
+  it 'runs setup on repositories when added' do
+    user_repo.should_receive(:setup)
+    Repository.add(:users => user_repo)
+  end
+end
+
+class MockRepository
+  def setup
   end
 end

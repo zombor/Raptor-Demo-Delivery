@@ -1,6 +1,7 @@
 module Repository
   def self.add(repos)
     repos.each_pair do |key, value|
+      value.setup
       Repository.repositories[key] = value
     end
   end
