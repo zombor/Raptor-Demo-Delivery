@@ -13,6 +13,8 @@ module Repository
 
     def setup
       ::DataMapper.setup(self.repo, self.location)
+      ::DataMapper.finalize
+      ::DataMapper.auto_upgrade!
     end
   end
 end
