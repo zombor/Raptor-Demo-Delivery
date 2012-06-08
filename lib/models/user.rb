@@ -1,7 +1,7 @@
 module MyKissList
   module Records
     class User
-      attr_reader :id, :email, :password
+      attr_accessor :id, :email, :password
 
       def initialize(attributes={})
         attributes ||= {}
@@ -12,10 +12,6 @@ module MyKissList
           end
         end
       end
-
-      protected
-
-      attr_writer :id, :email, :password
     end
   end
 end

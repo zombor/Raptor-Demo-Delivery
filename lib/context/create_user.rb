@@ -1,12 +1,11 @@
 module MyKissList
   module Context
     class CreateUser
-      def initialize(user)
-        @user = user
-      end
-
-      def execute
-        @user.extend(UnregisteredUser).register
+      def self.execute(user, params)
+        raise Raptor::ValidationError if params['email'].empty? || params['password'].empty?
+        user.email = params['email']
+        user.password = params['password']
+        user.extend(UnregisteredUser).register
 
         {:status => :success, :user => @user}
       end
