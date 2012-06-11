@@ -1,5 +1,3 @@
-require_relative 'fake_record'
-
 module MyKissList
   module Presenters
     class HomePage
