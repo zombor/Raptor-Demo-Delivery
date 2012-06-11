@@ -1,18 +1,22 @@
 GIT
-  remote: https://github.com/garybernhardt/raptor.git
-  revision: 1bbb3157b94fa15682483afafcbe532469624219
-  specs:
-    raptor (0.0.1)
-      rack
-      tilt
-
-GIT
   remote: https://github.com/zombor/Arden.git
   revision: 8c34d52d83b4406b8ade1ea325f83d82a16499e5
   specs:
     arden (0.0.1)
       datamapper (= 1.2.0)
       dm-sqlite-adapter (= 1.2.0)
+
+PATH
+  remote: ../My-Kiss-List-Application
+  specs:
+    mykisslist (0.0.1)
+
+PATH
+  remote: ../raptor
+  specs:
+    raptor (0.0.1)
+      rack
+      tilt
 
 GEM
   remote: http://rubygems.org/
@@ -92,6 +96,7 @@ DEPENDENCIES
   arden!
   datamapper
   dm-sqlite-adapter
+  mykisslist!
   rack
   raptor!
   rspec
