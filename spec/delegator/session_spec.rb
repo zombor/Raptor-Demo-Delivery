@@ -19,15 +19,17 @@ describe MyKissList::Delegator::Session do
     subject.create({:email => 'foo@bar.com', :password => 'foobar'}, rack_env)
   end
 
-  it 'raises an exception if the user is not found' do
+  it 'raises a not found exception if the user is not found' do
     Arden::Repository.for(:user).should_receive(:find_by_email).and_return(nil)
 
     lambda { subject.create({:email => 'foo@bar.com', :password => 'foobar'}, {}) }.should raise_error(Error::NotFound)
   end
 
-  it 'raises an exception if the password does not match' do
+  it 'raises a validation exception if the password does not match' do
     Arden::Repository.for(:user).should_receive(:find_by_email).and_return(user)
 
-    lambda { subject.create({:email => 'foo@bar.com', :password => 'fobar'}, {}) }.should raise_error(Error::Validation)
+    lambda { subject.create({:email => 'foo@bar.com', :password => 'fobar'}, {}) }.should raise_error(Error::Validation) { |error|
+      error.errors.should have_key(:email)
+    }
   end
 end
