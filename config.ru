@@ -1,4 +1,3 @@
-$LOAD_PATH << 'lib'
 require './app'
 require 'ostruct'
 

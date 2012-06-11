@@ -1,3 +1,4 @@
+$LOAD_PATH << 'lib'
 require 'raptor'
 require 'arden'
 require_relative 'users'

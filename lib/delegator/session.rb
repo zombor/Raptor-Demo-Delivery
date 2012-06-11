@@ -6,7 +6,7 @@ module MyKissList
     class Session
       # Log the user in
       def self.create(params, rack_env)
-        user = Arden::Repository.for(:user).find_by_email(params[:email])
+        user = Arden::Repository.for(:user).find_by_email(params['email'])
 
         if user.nil?
           raise Error::NotFound
