@@ -1,0 +1,17 @@
+<h1>Log In</h1>
+
+<form method="post" action="/session">
+  <dl>
+    <dt>
+      <label for="email">Email</label>
+      <% if email_error %><label for="email" class="error">Email error!</label><% end %>
+    </dt>
+    <dd><input name="email" id="email" value="<%=email%>" /></dd>
+    <dt>
+      <label for="password">Password</label>
+      <% if password_error %><label for="password" class="error">Password error!</label><% end %>
+    </dt>
+    <dd><input name="password" id="password" type="password" /></dd>
+    <dd><input type="submit" value="Log In" /></dd>
+  </dl>
+</form>
